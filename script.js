@@ -1,11 +1,10 @@
 var events;
 
+
 // Fill in events from local storage
 function renderEvents() {
   // check if events have been already set
   if (localStorage.getItem("events") !== null) {
-    // iterate over event descriptions
-    // obtain events
     events = JSON.parse(localStorage.getItem("events"));
     // iterate over textareas
     $("textarea").each(function (index, element) {
@@ -17,7 +16,6 @@ function renderEvents() {
     events = {};
     // iterate over keys
     for (let i = 1; i <= 9; i++) {
-      // add keys
       events[i] = "";
     }
     // log into localStorage
@@ -48,11 +46,9 @@ function renderBlockColors() {
 }
 
 // when save button is clicked
-$(".saveBtn").click(function (event) {
+$(".saveButton").click(function (event) {
   event.preventDefault();
-  // obtain event to save
   var event = $(this).prev().val();
-  // obtain index
   var index = $(this).attr("id");
   // change event in global events variable
   events[index] = event;
